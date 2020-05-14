@@ -1,4 +1,4 @@
-"# covid19-app" 
+<h2>Covid 19 Case Report </h2>
 
 This is an app that will report Covid 19 cases. This app utilizes API from RapidAPI (https://rapidapi.com/)
 
