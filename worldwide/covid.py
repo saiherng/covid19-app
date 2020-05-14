@@ -4,7 +4,7 @@ import json
 import requests
 
 x_rapidapi_host = "covid-19-data.p.rapidapi.com"
-x_rapidapi_key = "29ebf9fbadmshe4dd7086ac2bc74p14c987jsn441ea254509f"
+x_rapidapi_key = "ENTER KEY HERE"
 
 def covid_display_total():
 
