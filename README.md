@@ -7,6 +7,5 @@ https://rapidapi.com/Gramzivi/api/covid-19-data
 
 This Project is in Progress...
 
-Currently looks like this 
 
 ![Image description](https://github.com/saiherng/covid19-app/blob/master/Cases.PNG)
