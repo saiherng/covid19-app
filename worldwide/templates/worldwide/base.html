@@ -12,39 +12,12 @@
 
     <link rel="stylesheet" type="text/css" href="{% static 'worldwide/style.css' %}">
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-        <script type="text/javascript">
-          google.charts.load('current', {
-            'packages':['geochart'],
-            // Note: you will need to get a mapsApiKey for your project.
-            // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
-            'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
-          });
-          google.charts.setOnLoadCallback(drawRegionsMap);
-
-          function drawRegionsMap() {
-            var data = google.visualization.arrayToDataTable([
-              ['Country', 'Cases'],
-              ['United States', 1600000],
-              ['Myanmar', 203],
-              ['China', 82974],
-              ['Italy', 229000],
-              ['Russia', 336000]
-            ]);
-
-            var options = {colors: ['#FF0000']};
-
-            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
-
-            chart.draw(data, options);
-          }
-        </script>
-    <title>{% block title %}Covid Data App{% endblock %}</title>
+    <title>Covid Data App</title>
 
   <body>
     <!--Nav -->
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <a class="navbar-brand" href="#">Covid App</a>
+      <a class="navbar-brand" href="/">Covid App</a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -55,7 +28,7 @@
             <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
           </li>
           <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <a class="nav-link dropdown-toggle" href="/" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         Countries
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -64,45 +37,18 @@
         {% endfor %}
 
         <div class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#">Something else here</a>
+        <a class="dropdown-item" href="/">Something else here</a>
       </div>
     </li>
         </ul>
       </div>
     </nav>
     <!--Nav -->
-
     <br>
-    <h1>WordWide Covid-19 Cases</h1>
-
-    <center><div id="regions_div"></div></center>
-
-    <br>
-    <div class="card-deck justify-content-center">
-      <div class="card border-warning mb-3" style="max-width: 18rem;">
-      <div class="card-header border-warning text-warning">Confirmed</div>
-        <div class="card-body text-warning border-warning">
-          <h5 class="card-title">{{confirmed}}</h5>
-        </div>
-      </div>
-    <div class="card border-danger mb-3" style="max-width: 18rem;">
-      <div class="card-header border-danger text-danger">Deaths</div>
-      <div class="card-body text-danger">
-        <h5 class="card-title">{{deaths}}</h5>
-    </div>
-        </div>
-    <div class="card border-success mb-3" style="max-width: 18rem;">
-  <div class="card-header  border-success text-success">Recovered</div>
-  <div class="card-body text-success">
-    <h5 class="card-title">{{recovered}}</h5>
-  </div>
-</div>
-    </div>
-    </div>
-  </div>
+  {% block content %}
 
 
-
+  {% endblock %}
 
   <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
     <div class="container text-center">

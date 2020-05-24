@@ -24,7 +24,7 @@ def display(request):
     }
 
 
-    return render(request, 'worldwide/index.html', context)
+    return render(request, 'worldwide/worldwide.html', context)
 
 def display_country(request, country):
 

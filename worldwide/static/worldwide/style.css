@@ -37,7 +37,7 @@ body {
   padding: 1px;
   flex-shrink: none;
   bottom: 0px;
-  position: fixed;
+  position: absolute;
   width: 100%;
 }
 

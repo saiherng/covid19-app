@@ -1,8 +1,14 @@
+{% extends 'worldwide/base.html' %}
 
 
-<h1>{{country}}</h1>
-<ul>
-{% for province in provinces %}
-  <li> {{province}} </li>
-{% endfor %}
-<ul>
+
+{% block content %}
+
+  <h1>{{country}}</h1>
+
+  {% for province in provinces %}
+    {{province}}
+  {% endfor %}
+
+
+{% endblock %}
