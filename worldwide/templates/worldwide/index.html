@@ -6,49 +6,88 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
+    {% load static %}
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
-    <!-- {% load static %}
-    <link rel="stylesheet" type="text/css" href="{% static 'worldwide/style.css' %}"> -->
-    <title>Covid Data App</title>
-  </head>
+
+    <link rel="stylesheet" type="text/css" href="{% static 'worldwide/style.css' %}">
+
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script type="text/javascript">
+          google.charts.load('current', {
+            'packages':['geochart'],
+            // Note: you will need to get a mapsApiKey for your project.
+            // See: https://developers.google.com/chart/interactive/docs/basic_load_libs#load-settings
+            'mapsApiKey': 'AIzaSyD-9tSrke72PouQMnMX-a7eZSW0jkFMBWY'
+          });
+          google.charts.setOnLoadCallback(drawRegionsMap);
+
+          function drawRegionsMap() {
+
+
+            var data = google.visualization.arrayToDataTable([
+              ['Country', 'Cases'],
+              ['United States', 300]
+            ]);
+
+            var options = {};
+
+            var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
+
+            chart.draw(data, options);
+          }
+        </script>
+    <title>{% block title %}Covid Data App{% endblock %}</title>
+
   <body>
-    <ul class="nav nav-pills">
-      <li class="nav-item">
-        <a class="nav-link active" href="#">Home</a>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Countries</a>
-        <div class="dropdown-menu">
-          <a class="dropdown-item" href="#">Country 1</a>
-          <a class="dropdown-item" href="#">Country 2</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Link</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link disabled" href="#">Disabled</a>
-      </li>
-    </ul>
+    <!--Nav -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand" href="#">Covid App</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
 
-    <div class="container-fluid">
-      <br>
-      <h1>WordWide Covid-19 Cases</h1>
+      <div class="collapse navbar-collapse" id="navbarTogglerDemo02">
+        <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+          <li class="nav-item active">
+            <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item dropdown">
+      <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Countries
+      </a>
+      <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+        {% for country in countries %}
+          <a class="dropdown-item" href="#">{{country.name}}</a>
+        {% endfor %}
 
-      <br>
-      <div class="card-deck text-center">
-        <div class="card border-warning mb-3" style="max-width: 18rem;">
+        <div class="dropdown-divider"></div>
+        <a class="dropdown-item" href="#">Something else here</a>
+      </div>
+    </li>
+        </ul>
+      </div>
+    </nav>
+    <!--Nav -->
+
+    <br>
+    <h1>WordWide Covid-19 Cases</h1>
+
+    <center><div id="regions_div"></div></center>
+
+    <br>
+    <div class="card-deck justify-content-center">
+      <div class="card border-warning mb-3" style="max-width: 18rem;">
     <div class="card-header border-warning text-warning">Confirmed</div>
     <div class="card-body text-warning border-warning">
       <h5 class="card-title">{{confirmed}}</h5>
       </div>
-  </div>
-        <div class="card border-danger mb-3" style="max-width: 18rem;">
-          <div class="card-header border-danger text-danger">Deaths</div>
-          <div class="card-body text-danger">
-            <h5 class="card-title">{{deaths}}</h5>
-        </div>
+    </div>
+    <div class="card border-danger mb-3" style="max-width: 18rem;">
+      <div class="card-header border-danger text-danger">Deaths</div>
+      <div class="card-body text-danger">
+        <h5 class="card-title">{{deaths}}</h5>
+    </div>
         </div>
     <div class="card border-success mb-3" style="max-width: 18rem;">
   <div class="card-header  border-success text-success">Recovered</div>
@@ -58,17 +97,16 @@
 </div>
     </div>
     </div>
-
-  <select class="custom-select custom-select-lg col-md-5 mb-3">
-    <option selected>Select country</option>
-    {% for country in countries %}
-      <option value="3">{{country.name}}</option>
-    {% endfor %}
-  </select>
-  <button class="btn btn-primary" type="submit">Submit form</button>
+  </div>
 
 
+
+
+  <footer id="sticky-footer" class="py-4 bg-dark text-white-50">
+    <div class="container text-center">
+      <small>Copyright 2020 &copy; Sai Herng </small>
     </div>
+  </footer>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>

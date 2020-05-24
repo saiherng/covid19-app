@@ -1,4 +1,4 @@
-body {
+/* body {
 
   align-items: center;
   width: 50%;
@@ -18,4 +18,42 @@ body {
 h1 {
   text-shadow: 2px 2px;
   width: 50%;
+} */
+
+
+body {
+  height: auto;
+  text-align: center;
 }
+
+.custom-select{
+  line-height: 20pt;
+}
+
+#sticky-footer {
+  padding: 3px;
+  flex-shrink: none;
+  bottom: 0;
+  position: fixed;
+  width: 100%;
+}
+
+#regions_div {
+  width: 900px;
+  height: 500px;
+  top: 200px;
+  bottom: 0px;
+  align-items: center;
+}
+
+.dropdown-menu {
+  overflow-y: scroll;
+  max-height: 500px;
+}
+
+/* Other Classes for Page Styling */
+
+/* body {
+  background: #007bff;
+  background: linear-gradient(to right, #0062E6, #33AEFF);
+} */
