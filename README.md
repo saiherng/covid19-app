@@ -8,4 +8,4 @@ https://rapidapi.com/Gramzivi/api/covid-19-data
 This Project is in Progress...
 
 
-![Image description](https://github.com/saiherng/covid19-app/blob/master/Cases.PNG)
+![Image description](https://github.com/saiherng/covid19-case-report-app/blob/master/progress/progress_2.PNG)
