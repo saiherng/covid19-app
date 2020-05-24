@@ -26,22 +26,25 @@ body {
   text-align: center;
 }
 
+.card{
+  z-index: 2;
+}
 .custom-select{
   line-height: 20pt;
 }
 
 #sticky-footer {
-  padding: 3px;
+  padding: 1px;
   flex-shrink: none;
-  bottom: 0;
+  bottom: 0px;
   position: fixed;
   width: 100%;
 }
 
 #regions_div {
-  width: 900px;
+  width: 800px;
   height: 500px;
-  top: 200px;
+  top: 100px;
   bottom: 0px;
   align-items: center;
 }

@@ -23,14 +23,16 @@
           google.charts.setOnLoadCallback(drawRegionsMap);
 
           function drawRegionsMap() {
-
-
             var data = google.visualization.arrayToDataTable([
               ['Country', 'Cases'],
-              ['United States', 300]
+              ['United States', 1600000],
+              ['Myanmar', 203],
+              ['China', 82974],
+              ['Italy', 229000],
+              ['Russia', 336000]
             ]);
 
-            var options = {};
+            var options = {colors: ['#FF0000']};
 
             var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
 
@@ -58,7 +60,7 @@
       </a>
       <div class="dropdown-menu" aria-labelledby="navbarDropdown">
         {% for country in countries %}
-          <a class="dropdown-item" href="#">{{country.name}}</a>
+          <a class="dropdown-item" href="/country/{{country.name}}">{{country.name}}</a>
         {% endfor %}
 
         <div class="dropdown-divider"></div>
@@ -78,11 +80,11 @@
     <br>
     <div class="card-deck justify-content-center">
       <div class="card border-warning mb-3" style="max-width: 18rem;">
-    <div class="card-header border-warning text-warning">Confirmed</div>
-    <div class="card-body text-warning border-warning">
-      <h5 class="card-title">{{confirmed}}</h5>
+      <div class="card-header border-warning text-warning">Confirmed</div>
+        <div class="card-body text-warning border-warning">
+          <h5 class="card-title">{{confirmed}}</h5>
+        </div>
       </div>
-    </div>
     <div class="card border-danger mb-3" style="max-width: 18rem;">
       <div class="card-header border-danger text-danger">Deaths</div>
       <div class="card-body text-danger">
