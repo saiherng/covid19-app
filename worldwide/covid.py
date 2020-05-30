@@ -9,7 +9,7 @@ class Covid():
     def __init__(self):
 
         self.x_rapidapi_host = "covid-19-data.p.rapidapi.com"
-        self.x_rapidapi_key = "29ebf9fbadmshe4dd7086ac2bc74p14c987jsn441ea254509f"
+        self.x_rapidapi_key = "ENTER KEY..."
 
         self.headers = {
             'x-rapidapi-host': self.x_rapidapi_host,
