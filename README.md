@@ -6,6 +6,6 @@ REPLACE API KEY IN covid19-app/worldwide/covid.py with information from...
 https://rapidapi.com/Gramzivi/api/covid-19-data
 
 
-
+Virtual Env : source covid-server/bin/activate 
 
 ![Image description](https://github.com/saiherng/covid19-case-report-app/blob/master/progress/progress_2.PNG)
